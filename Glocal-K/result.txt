@@ -4,3 +4,31 @@ best_rmse:  1.0239966646299297
 best_precision:  0.752067963335569
 best_recall:  0.17457187337830826
 best_f1:  0.2833677294360443
+
+data:  ../processed_data_for_matrix_completion/discreted_link_ratings_p1.csv
+best_mae:  0.7896035923630563
+best_rmse:  0.9981185816561572
+best_precision:  0.7550630492930837
+best_recall:  0.21219931271477663
+best_f1:  0.33129348646156426
+
+data:  ../processed_data_for_matrix_completion/discreted_link_ratings_p2.csv
+best_mae:  0.7910384708718521
+best_rmse:  0.9998432715811898
+best_precision:  0.7496960222338023
+best_recall:  0.20190868263473055
+best_f1:  0.31813658644455095
+
+data:  ../processed_data_for_matrix_completion/discreted_link_ratings_p3.csv
+best_mae:  0.7939440138997996
+best_rmse:  0.9990687756850085
+best_precision:  0.7665433621043979
+best_recall:  0.19862612492677992
+best_f1:  0.31550010573059845
+
+data:  ../processed_data_for_matrix_completion/discreted_link_ratings_p4.csv
+best_mae:  0.7952934430391991
+best_rmse:  1.0025934315421483
+best_precision:  0.7574825748257482
+best_recall:  0.19161956127158636
+best_f1:  0.3058648234758495
