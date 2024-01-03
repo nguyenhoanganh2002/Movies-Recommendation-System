@@ -23,7 +23,7 @@ Download this repository. As the code format is .ipynb, there are no settings bu
 
 
 ## 1. Introduction
-More about the method can be found ![here](https://surprise.readthedocs.io/en/stable/matrix_factorization.html?fbclid=IwAR1_2AJEXosQOnbc9h_NnR2XMou4JAbOTFv7QAyB7d9U-FVpX1dYeUe4me8)
+More about the method can be found [here](https://surprise.readthedocs.io/en/stable/matrix_factorization.html?fbclid=IwAR1_2AJEXosQOnbc9h_NnR2XMou4JAbOTFv7QAyB7d9U-FVpX1dYeUe4me8)
 
 
 ## 2. Setup
