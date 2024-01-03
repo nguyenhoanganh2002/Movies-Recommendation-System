@@ -1,0 +1,6 @@
+data:  ../processed_data_for_matrix_completion/discreted_link_ratings_p0.csv
+best_mae:  2.0008756559590974
+best_rmse:  2.2908428935320675
+best_precision:  0.4989463543861762
+best_recall:  0.4300467047223664
+best_f1:  0.4619415256835475
