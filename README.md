@@ -54,3 +54,6 @@ Download this repository. As the code format is .ipynb, there are no settings bu
 * torch
 * scikit-learn
 * transformers
+
+# How to sample
+Generate the sampled data in either csv or jsonlines format with the sample.ipynb.
