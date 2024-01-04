@@ -4,3 +4,10 @@ best_rmse:  1.0006905754606663
 best_precision:  0.7812039451309375
 best_recall:  0.14081657675331044
 best_f1:  0.23862042696123414
+
+data:  /content/discreted_link_ratings_p1.csv
+best_mae:  0.7684006402184774
+best_rmse:  0.97394886917074
+best_precision:  0.7952634816485544
+best_recall:  0.1598557444616177
+best_f1:  0.2662022340808867
