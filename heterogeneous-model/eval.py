@@ -3,6 +3,7 @@ import json
 import jsonlines
 import random
 import pandas as pd
+import numpy as np
 from torch.utils.data import DataLoader
 import torch
 import torch.nn as nn
@@ -10,8 +11,37 @@ from model import Recommender
 from config import *
 from dataset import CustomDataset
 from sklearn.preprocessing import StandardScaler, MinMaxScaler
+from sklearn.metrics import precision_score, recall_score, f1_score, mean_absolute_error, mean_squared_error
 
 from tqdm import tqdm
+
+def precision(y_true, y_pred):
+    y_true_binary = (y_true >= 4).astype(int)
+    y_pred_binary = (y_pred >= 4).astype(int)
+    res = precision_score(y_true_binary, y_pred_binary)
+    return res
+
+def recall(y_true, y_pred):
+    y_true_binary = (y_true >= 4).astype(int)
+    y_pred_binary = (y_pred >= 4).astype(int)
+    res = recall_score(y_true_binary, y_pred_binary)
+    return res
+
+def f1(y_true, y_pred):
+    y_true_binary = (y_true >= 4).astype(int)
+    y_pred_binary = (y_pred >= 4).astype(int)
+    res = f1_score(y_true_binary, y_pred_binary)
+    return res
+
+def mae(y_true, y_pred):
+    y_pred = np.clip(y_pred, 1., 5.)
+    res = mean_absolute_error(y_true, y_pred)
+    return res
+
+def rmse(y_true, y_pred):
+    y_pred = np.clip(y_pred, 1., 5.)
+    res = mean_squared_error(y_true, y_pred)
+    return np.sqrt(res)
 
 if __name__ == "__main__":
 
@@ -115,12 +145,21 @@ if __name__ == "__main__":
 
     l1_loss = nn.L1Loss()
     
+    y_true, y_pred = [], []
     with torch.no_grad():
         model.eval()
         val_loss = 0
         for batch in tqdm(valloader):
             out = model(batch)
-            loss = l1_loss(out, batch["candidate_item"]["rating"])
-            val_loss += loss
-
-        print(f"val loss: {5*val_loss/len(valloader)}")
+            y_pred += out.reshape(-1).cpu().tolist()
+            y_true += batch["candidate_item"]["rating"].reshape(-1).cpu().tolist()
+    
+    scaler = MinMaxScaler(feature_range=(-1, 1))
+    scaler.fit(user_rating.rating.to_numpy().reshape(-1,1)/2)
+    y_true = scaler.inverse_transform(np.array(y_true).reshape(1,-1))[0]
+    y_pred = scaler.inverse_transform(np.array(y_pred).reshape(1,-1))[0]
+    print(f"Precision: {precision(y_true,y_pred)}")
+    print(f"Recall: {recall(y_true,y_pred)}")
+    print(f"F1: {f1(y_true,y_pred)}")
+    print(f"MAE: {mae(y_true,y_pred)}")
+    print(f"RMSE: {rmse(y_true,y_pred)}")
