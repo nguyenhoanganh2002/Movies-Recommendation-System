@@ -46,8 +46,8 @@ Download this repository. As the code format is .ipynb, there are no settings bu
 ![image](https://github.com/nguyenhoanganh2002/Movies-Recommendation-System/assets/79850337/4fe8e1ea-6f7e-48e4-a58e-16bf64be6719)
 
 ## Run:
-2. Training: run script .heterogenrous-model/train.py
-3. Evaluating: run script .heterogenrous-model/eval.py
+1. Training: run script .heterogenrous-model/train.py
+2. Evaluating: run script .heterogenrous-model/eval.py
 
 ## Requirements:
 * torch
