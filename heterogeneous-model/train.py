@@ -10,7 +10,7 @@ from model import Recommender
 from config import *
 from dataset import CustomDataset
 from sklearn.preprocessing import StandardScaler, MinMaxScaler
-
+import numpy as np
 from tqdm import tqdm
 
 if __name__ == "__main__":
